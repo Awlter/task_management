@@ -1,2 +1,16 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+<div class='list'>
+  <div class='w-75 mx-auto mt-5'>
+    <%= form_for Task.new, remote: true, html: { class: 'd-flex align-items-end mt-5' } do |f| %>
+      <div class='w-100'>
+        <label for="basic-url">Enter your task</label>
+        <%= f.text_field :description, placeholder: 'description', class: 'form-control' %>
+      </div>
+
+      <%= f.submit 'ADD', class: 'btn btn-primary mx-3', data: { "disable-with": "Add..." } %>
+
+      <div class="row row-cols-<%= Task::WEIGHTED_PRIORITY.count %>">
+        <%= render 'priority_buttons' %>
+      </div>
+    <% end %>
+  </div>
+</div>

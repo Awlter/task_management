@@ -1,3 +1,33 @@
 // Place all the styles related to the tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.tasks-list {
+  .badge {
+    width: 5rem;
+    line-height: 2;
+  }
+  .badge-important {
+    color: #212529;
+    background-color: #ffc107;
+  }
+
+  .badge-urgent {
+    color: #fff;
+    background-color: #dc3545;
+  }
+
+  .badge-open {
+    color: #fff;
+    background-color: rgb(0, 164, 211);
+  }
+
+  .badge-process {
+    color: #fff;
+    background-color: rgb(114, 187, 83);
+  }
+
+  .badge-closed {
+    color: #fff;
+    background-color: rgb(153, 153, 153);
+  }
+}

@@ -31,3 +31,8 @@
 
 en:
   hello: "Hello world"
+  task:
+    state_action:
+      open: "start"
+      process: "done"
+      closed: ""

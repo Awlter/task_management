@@ -1,7 +1,12 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class TaskTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  # state_action
+  test 'return correnct state action text' do
+    task = create(:task)
+
+    assert_equal task.state_action, 'Start'
+  end
 end

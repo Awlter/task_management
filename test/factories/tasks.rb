@@ -5,5 +5,6 @@ FactoryBot.define do
     description { Faker::Movies::HarryPotter.quote[0..30] }
     state { 'open' }
     priorities { [5, 10] }
+    user
   end
 end

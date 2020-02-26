@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
 class TasksController < ApplicationController
-  def index; end
+  def index
+    @tasks = current_user.tasks
+  end
 
   def create
     task = current_user.tasks.new(task_params.to_hash)
-    task.save
+    redirect_to backlog_list_path if task.save
   end
 
   def update; end

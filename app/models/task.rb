@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class Task < ApplicationRecord
-  WEIGHTED_PRIORITY = { important: 5, urgent: 10 }.freeze
+  include Decorations::Tasks
+  WEIGHTED_PRIORITY = { 5 => 'important', 10 => 'urgent' }.freeze
 
   belongs_to :user
 end

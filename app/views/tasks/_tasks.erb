@@ -1,3 +1,5 @@
-<%- @tasks&.each do |task| %>
-  <%= render 'task', task: task %>
-<% end %>
+<div class="tasks">  
+  <%- @tasks&.each do |task| %>
+    <%= render 'task', task: task %>
+  <% end %>
+</div>

@@ -1,0 +1,6 @@
+$('a[href="<%= task_path(@task) %>"]').parent('.list-group-item').remove()
+<%- if @task.closed? %>
+  $('.tasks-list .list-group .tasks').append('<%= j render 'task', task: @task %>')
+<% else %>
+  $('.tasks-list .list-group .tasks').prepend('<%= j render 'task', task: @task %>')
+<% end %>

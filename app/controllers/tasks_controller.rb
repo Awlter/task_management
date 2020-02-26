@@ -10,7 +10,11 @@ class TasksController < ApplicationController
     @task.save
   end
 
-  def update; end
+  def update
+    @task = Task.find(params[:id])
+    @task.pivot_to_next_state!
+    @task.save
+  end
 
   def destroy; end
 

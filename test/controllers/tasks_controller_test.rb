@@ -21,5 +21,8 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should not update if the current user did not create the task' do
+    task = create(:task, state: 'process')
+    patch task_path(task) + '.js'
+    assert_equal 'process', task.reload.state
   end
 end

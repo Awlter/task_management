@@ -2,7 +2,7 @@
 
 class TasksController < ApplicationController
   def index
-    @tasks = current_user.tasks
+    @tasks = current_user.tasks.order("state = 'process' DESC, state = 'open' DESC, state = 'closed' DESC")
   end
 
   def create
@@ -12,6 +12,7 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
+    return render status: 422 if @task.user != current_user
     @task.pivot_to_next_state!
     @task.save
   end

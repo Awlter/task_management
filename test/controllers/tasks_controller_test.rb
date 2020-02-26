@@ -25,4 +25,10 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
     patch task_path(task) + '.js'
     assert_equal 'process', task.reload.state
   end
+
+  test 'should delete a task' do
+    task = create(:task, user: @user)
+    delete task_path(task) + '.js'
+    refute Task.find_by(id: task.id)
+  end
 end

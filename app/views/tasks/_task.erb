@@ -12,7 +12,9 @@
 
   <%= link_to_if !task.closed?, task.state_action, task, class: 'btn btn-primary mx-2', remote: true, method: :patch %>
 
-  <button type="button" class="close ml-1" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
+  <%= link_to task, remote: true, method: :delete do %>
+    <button type="button" class="close ml-1" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  <% end %>
 </div>

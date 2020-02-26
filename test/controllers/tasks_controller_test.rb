@@ -1,24 +1,16 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class TasksControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
-    get tasks_index_url
-    assert_response :success
+  setup do
+    create(:user)
   end
 
-  test "should get create" do
-    get tasks_create_url
-    assert_response :success
+  test 'should get create' do
+    task = build(:task)
+    post tasks_path, params: { 'task' => { 'description' => task.description, 'priorities' => { 'important' => '5', 'urgent' => '' } } }
+    assert_equal Task.last.priorities, [5]
+    assert_equal Task.last.description, task.description
   end
-
-  test "should get update" do
-    get tasks_update_url
-    assert_response :success
-  end
-
-  test "should get destroy" do
-    get tasks_destroy_url
-    assert_response :success
-  end
-
 end

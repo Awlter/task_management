@@ -9,7 +9,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
   test 'should get create' do
     task = build(:task)
-    post tasks_path, params: { 'task' => { 'description' => task.description, 'priorities' => { 'important' => '5', 'urgent' => '' } } }
+    post tasks_path + '.js', params: { 'task' => { 'description' => task.description, 'priorities' => { 'important' => '5', 'urgent' => '' } } }
     assert_equal Task.last.priorities, [5]
     assert_equal Task.last.description, task.description
   end

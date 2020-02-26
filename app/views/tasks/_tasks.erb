@@ -1,17 +1,3 @@
 <%- @tasks&.each do |task| %>
-  <div href="#" class="list-group-item list-group-item-action d-flex align-items-center">
-    <div class='flex-grow-1'>
-      <span><%= task.description %></span>
-      <span class="badge badge-<%= task.state %>"><%= task.state %></span>
-    </div>
-    <div>
-      <%- task.priorities.each do |priority| %>
-        <span class="badge badge-<%= Task::WEIGHTED_PRIORITY[priority] %>"><%= Task::WEIGHTED_PRIORITY[priority] %></span>
-      <% end %>
-    </div>
-    <button type="button" class="btn btn-secondary mx-4"><%= task.state_action %></button>
-    <button type="button" class="close" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
+  <%= render 'task', task: task %>
 <% end %>

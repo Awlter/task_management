@@ -1,6 +1,6 @@
 <%- Task::WEIGHTED_PRIORITY.each do |weight, priority| %>
   <label class="col">
-    <%= radio_button_tag "task[priorities][#{priority}]", '', true %>
+    <%= radio_button_tag "task[priorities][#{priority}]", '', true, class: 'default' %>
     Not <%= priority.capitalize %>
   </label>
   <label class="col">

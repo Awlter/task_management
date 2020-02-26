@@ -6,8 +6,8 @@ class TasksController < ApplicationController
   end
 
   def create
-    task = current_user.tasks.new(task_params.to_hash)
-    redirect_to backlog_list_path if task.save
+    @task = current_user.tasks.new(task_params.to_hash)
+    @task.save
   end
 
   def update; end

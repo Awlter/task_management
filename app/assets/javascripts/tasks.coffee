@@ -5,5 +5,5 @@ $(document).on 'turbolinks:load', ->
   $('#show_closed').on 'change', (e) ->
     $target = $(e.target)
     currentState = $target.is(':checked')
-    $.cookie('showClosedTask', currentState)
+    $.cookie('showClosedTask', currentState, { path:'/' })
     $('.list-group-item.closed').toggle(currentState).toggleClass('d-flex', currentState)

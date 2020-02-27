@@ -1,4 +1,4 @@
-<div class="list-group-item list-group-item-action d-flex align-items-center <%= task.state %>">
+<div class="list-group-item list-group-item-action align-items-center <%= task.state %> <%= (task.closed? && !show_closed_tasks?) ? 'd-none' : 'd-flex'%>">
   <div class='flex-grow-1'>
     <span><%= task.description %></span>
     <span class="badge badge-<%= task.state %>"><%= task.state %></span>

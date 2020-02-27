@@ -1,29 +1,21 @@
 <%-
-  f = local_assigns.fetch :f, nil
+  register = local_assigns.fetch :register, nil
 %>
 
 <div class="input-group form-group">
   <div class="input-group-prepend">
     <span class="input-group-text"><i class="fas fa-user"></i></span>
   </div>
-  <%- if f %>
-    <%= f.text_field :username, class: "form-control", placeholder: 'username' %>
-  <% else %>
-    <%= text_field_tag :username, nil, class: "form-control", placeholder: 'username' %>
-  <% end %>
+  <%= f.text_field :username, class: "form-control", placeholder: 'username' %>
 </div>
 
 <div class="input-group form-group">
   <div class="input-group-prepend">
     <span class="input-group-text"><i class="fas fa-key"></i></span>
   </div>
-  <%- if f %>
-    <%= f.password_field :password, class: "form-control", placeholder: 'password' %>
-  <% else %>
-    <%= password_field_tag :password, nil, class: "form-control", placeholder: 'password' %>
-  <% end %>
+  <%= f.password_field :password, class: "form-control", placeholder: 'password' %>
 </div>
-<%- if f %>
+<%- if register %>
   <div class="input-group form-group">
     <div class="input-group-prepend">
       <span class="input-group-text"><i class="fas fa-key"></i></span>
@@ -33,10 +25,6 @@
 <% end %>
 
 <div class="form-group d-flex justify-content-between">
-  <%= link_to f ? 'login' : 'register', f ? login_path : register_path, class: 'btn btn-outline-primary' %>
-  <% if f %>
-    <%= f.submit f ? 'register' : 'login', class: 'btn btn-outline-dark' %>
-  <% else %>
-    <%= submit_tag 'login', class: 'btn btn-outline-dark' %>
-  <% end %>
+  <%= link_to register ? 'login' : 'register', register ? login_path : register_path, class: 'btn btn-outline-primary' %>
+  <%= f.submit register ? 'register' : 'login', class: 'btn btn-outline-dark' %>
 </div>

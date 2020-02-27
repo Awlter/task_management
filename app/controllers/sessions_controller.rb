@@ -4,17 +4,20 @@ class SessionsController < ApplicationController
   skip_before_action :authorized, only: %i[new create]
   before_action :already_login?, only: :new
 
-  def new; end
+  def new
+    @user = User.new
+  end
 
   def create
-    @user = User.find_by(username: params[:username])
-    if @user&.authenticate(params[:password])
+    @user = User.find_by(username: user_params[:username])
+    if @user&.authenticate(user_params[:password])
       flash[:success] = "Hi, #{@user.username}, nice to see you again~"
       session[:user_id] = @user.id
       redirect_to backlog_list_path
     else
+      @user = User.new(username: user_params[:username])
       flash[:danger] = 'User does not exist or the password is not correct'
-      redirect_to '/login'
+      render :new
     end
   end
 
@@ -30,5 +33,9 @@ class SessionsController < ApplicationController
       flash[:warning] = 'Alreadt Logged In.'
       redirect_to backlog_list_path
     end
+  end
+
+  def user_params
+    params.require(:user).permit(:username, :password)
   end
 end

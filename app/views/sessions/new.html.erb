@@ -1,7 +1,7 @@
 <div class="container mt-3">
   <div class="d-flex justify-content-center h-100">
-    <%= form_tag login_path do |f| %>
-      <%= render 'shared/user_form_content' %>
+    <%= form_for @user, url: login_path do |f| %>
+      <%= render 'shared/user_form_content', f: f %>
     <% end %>
   </div>
 </div>

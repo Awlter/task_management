@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on 'turbolinks:load', ->
-  $('#show_closed').on 'change', (e) ->
+  $('.tasks-list #show_closed').on 'change', (e) ->
     $target = $(e.target)
     currentState = $target.is(':checked')
     $.cookie('showClosedTask', currentState, { path:'/' })

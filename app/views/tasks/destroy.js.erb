@@ -1,1 +1,3 @@
 $('a[href="<%= task_path(@task) %>"]').parent('.list-group-item').remove()
+$('body section').prepend('<%= j render 'shared/messages' %>')
+<%= render 'shared/show_flash_notice.js' %>

@@ -4,3 +4,4 @@ $('a[href="<%= task_path(@task) %>"]').parent('.list-group-item').remove()
 <% else %>
   $('.tasks-list .list-group .tasks').prepend('<%= j render 'task', task: @task %>')
 <% end %>
+<%= render 'shared/show_flash_notice.js' %>

@@ -1,3 +1,4 @@
 $('.tasks-list .list-group .tasks').append('<%= j render 'task', task: @task %>')
-$('#task_description').html('')
+$('#task_description').val('')
 $('input.default').click()
+<%= render 'shared/show_flash_notice.js' %>

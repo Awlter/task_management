@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :user do
-    username { Faker::Movies::HarryPotter.name[0..8] }
+    username { Faker::Lorem.characters(number: User::USERNAME_MIN_LENGTH + 1) }
     password { 'Asd123456' }
   end
 end

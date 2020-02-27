@@ -7,6 +7,6 @@ class TaskTest < ActiveSupport::TestCase
   test 'return correnct state action text' do
     task = create(:task)
 
-    assert_equal task.state_action, 'Start'
+    assert_equal task.state_action, 'start'
   end
 end

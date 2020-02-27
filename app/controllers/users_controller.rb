@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to backlog_list_path
     else
-      flash[:danger] = @user.errors.full_messages.join('<br/>')
+      flash.now[:danger] = @user.errors.full_messages.join('<br/>')
       render :new
     end
   end

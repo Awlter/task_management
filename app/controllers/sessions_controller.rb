@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
       redirect_to backlog_list_path
     else
       @user = User.new(username: user_params[:username])
-      flash[:danger] = 'User does not exist or the password is not correct'
+      flash.now[:danger] = 'User does not exist or the password is not correct'
       render :new
     end
   end

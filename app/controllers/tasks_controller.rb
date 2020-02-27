@@ -10,23 +10,25 @@ class TasksController < ApplicationController
   def create
     @task = current_user.tasks.new(task_params.to_hash)
     if @task.save
-      flash[:success] = 'Added a new task'
+      flash.now[:success] = 'Added a new task'
     else
-      flash[:danger] = @task.errors.full_messages.join('<br/>')
+      flash.now[:danger] = @task.errors.full_messages.join('<br/>')
+      render 'shared/show_flash_notice'
     end
   end
 
   def update
     @task.pivot_to_next_state!
     if @task.save
-      flash[:success] = 'Changed the task state'
+      flash.now[:success] = 'Changed the task state'
     else
-      flash[:danger] = @task.errors.full_messages.join('<br/>')
+      flash.now[:danger] = @task.errors.full_messages.join('<br/>')
+      render 'shared/show_flash_notice'
     end
   end
 
   def destroy
-    flash[:success] = 'Removed the task'
+    flash.now[:success] = 'Removed the task'
     @task.delete
   end
 

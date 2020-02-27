@@ -1,0 +1,36 @@
+<%-
+  register = local_assigns.fetch :register, nil
+%>
+
+<div class="container mt-3">
+  <div class="d-flex justify-content-center h-100">
+    <%= form_for @user, url: register ? users_path : login_path do |f| %>
+      <div class="input-group form-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-user"></i></span>
+        </div>
+        <%= f.text_field :username, class: "form-control", placeholder: 'username' %>
+      </div>
+
+      <div class="input-group form-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-key"></i></span>
+        </div>
+        <%= f.password_field :password, class: "form-control", placeholder: 'password' %>
+      </div>
+      <%- if register %>
+        <div class="input-group form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-key"></i></span>
+          </div>
+          <%= f.password_field :password_confirm, class: "form-control", placeholder: 'password' %>
+        </div>
+      <% end %>
+
+      <div class="form-group d-flex justify-content-between">
+        <%= link_to register ? 'login' : 'register', register ? login_path : register_path, class: 'btn btn-outline-primary' %>
+        <%= f.submit register ? 'register' : 'login', class: 'btn btn-outline-dark' %>
+      </div>      
+    <% end %>
+  </div>
+</div>

@@ -29,10 +29,10 @@ class SessionsController < ApplicationController
   private
 
   def already_login?
-    if logged_in?
-      flash[:warning] = 'Alreadt Logged In.'
-      redirect_to backlog_list_path
-    end
+    return unless logged_in?
+
+    flash[:warning] = 'Alreadt Logged In.'
+    redirect_to backlog_list_path
   end
 
   def user_params

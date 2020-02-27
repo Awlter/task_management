@@ -1,7 +1,1 @@
-<div class="container mt-3">
-  <div class="d-flex justify-content-center h-100">
-    <%= form_for @user do |f| %>
-      <%= render 'shared/user_form_content', f: f, register: true %>
-    <% end %>
-  </div>
-</div>
+<%= render 'shared/user_form', register: true %>

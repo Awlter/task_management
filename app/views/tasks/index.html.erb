@@ -2,7 +2,13 @@
   <div class='w-75 mx-auto mt-5'>
     <div class="list-group">
       <div class="bg-info d-flex align-items-center">
-        <h3 class='p-2 my-0 mx-3 text-light'>Tasks</h3>
+        <h3 class='p-2 my-0 mx-3 text-light flex-grow-1'>Tasks</h3>
+        <div class='d-flex align-items-center mr-3'>
+          <%= label_tag :show_closed do %>
+            <%= check_box_tag :show_closed, nil, cookies['showClosedTask'] == 'true' %>
+            <span class='text-white font-weight-bold'>show closes tasks</span>
+          <% end %>
+        </div>
       </div>
       <%= render 'tasks' %>
     </div>
